@@ -31,14 +31,18 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
+				console.log(res.data)
+				_setState('todos', res.data)
 				// WHAT DO YOU DO WITH THE RESPONSE?
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => _setState('error', err))
 	}
 
 	addTodo(todo) {
 		todoApi.post('', todo)
 			.then(res => {
+				console.log(res.data)
+				this.getTodos
 				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
 			})
 			.catch(err => _setState('error', err.response.data))
@@ -48,15 +52,23 @@ export default class TodoService {
 		let todo = _state.todos.find(todo => todo._id == todoId)
 		// Be sure to change the completed property to its opposite
 		// todo.completed = !todo.completed <-- THIS FLIPS A BOOL
+		// TODO flip
 
 		todoApi.put(todoId, todo)
 			.then(res => {
+				this.getTodos()
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
 			})
 			.catch(err => _setState('error', err.response.data))
 	}
 
 	removeTodo(todoId) {
+		todoApi.delete(todoId)
+			.then(res => {
+				console.log(res.data.data)
+				this.getTodos()
+			})
+			.catch(err => console.error(err))
 		// This one is on you to write.... 
 		// The http method is delete at the todoId
 	}

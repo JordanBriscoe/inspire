@@ -21,7 +21,14 @@
 	<div>
 		A Todo List
 		<div id="todo-error"></div>
-		<form onsubmit=""></form>
+		<form onsubmit="app.controllers.todoController.addTodo(event)">
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+			  <span class="input-group-text" id="inputGroup-sizing-default">To Do</span>
+			</div>
+			<input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+		  </div>
+		</form>
 		<div id="todos"></div>
 	</div>
 
