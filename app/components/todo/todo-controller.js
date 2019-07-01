@@ -13,15 +13,15 @@ function _drawTodos() {
 	todoElem.innerHTML = template
 }
 
-function _drawError() {
-	console.error('[TODO ERROR]', _todoService.TodoError)
-	//document.querySelector('#todo-error').textContent = `${_todoService.TodoError.message}`
-}
+// function _drawError() {
+// 	console.error('[TODO ERROR]', _todoService.TodoError)
+// 	//document.querySelector('#todo-error').textContent = `${_todoService.TodoError.message}`
+// }
 
 
 export default class TodoController {
 	constructor() {
-		_todoService.addSubscriber('error', _drawError)
+		// _todoService.addSubscriber('error', _drawError)
 		_todoService.addSubscriber('todos', _drawTodos)
 		_todoService.getTodos()
 		// Don't forget to add your subscriber

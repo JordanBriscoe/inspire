@@ -25,20 +25,21 @@ export default class TodoService {
 		return _state.error
 	}
 
+	get Todos() {
+		return _state.todos.map(todo => new Todo(todo))
+	}
+
 	addSubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
 
-	get Todos() {
-		return _state.todos.map(todo => new Todo(todo))
-	}
 
 	getTodos() {
 		console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
-				console.log(res.data)
-				_setState('todos', res.data)
+				console.log(res.data.data)
+				_setState('todos', res.data.data)
 				// WHAT DO YOU DO WITH THE RESPONSE?
 			})
 			.catch(err => _setState('error', err))

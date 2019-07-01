@@ -7,7 +7,38 @@ export default class Todo{
         this.user = data.user
         this.description = data.description
     }
+
+    get Template(){
+        if(this.completed == false){
+        return `
+        <div class="row">
+            <div class="col-3">
+                <ul>
+                    <li ${this.description}><button type="button" class="btn btn-primary" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">Finished?</button></li>
+                </ul>
+            </div>
+        </div>
+        `
+        } 
+        else{
+        return `
+        <div class="row">
+            <div class="col-3">
+                <ul>
+                    <li ${this.description}><button type="button" class="btn btn-primary" onclick="app.controllers.todoController.removeTodo('${this._id}')">Finished?</button></li>
+                </ul>
+            </div>
+        </div>
+        `
+        }
+    }
+
 }
+
+
+
+
+
 
     // _id: {type: String, required: true, unique: true }
     // completed: { type: Boolean, required: true, default: false},
