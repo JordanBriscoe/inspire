@@ -14,7 +14,7 @@ export default class Todo{
         <div class="row">
             <div class="col-3">
                 <ul>
-                    <li ${this.description}><button type="button" class="btn btn-primary" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">Finished?</button></li>
+                    <li> ${this.description} <button type="button" class="btn btn-primary" onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">Finished?</button></li>
                 </ul>
             </div>
         </div>
@@ -25,7 +25,7 @@ export default class Todo{
         <div class="row">
             <div class="col-3">
                 <ul>
-                    <li ${this.description}><button type="button" class="btn btn-primary" onclick="app.controllers.todoController.removeTodo('${this._id}')">Finished?</button></li>
+                    <li> ${this.description} <button type="button" class="btn btn-primary" onclick="app.controllers.todoController.removeTodo('${this._id}')">Finished?</button></li>
                 </ul>
             </div>
         </div>

@@ -29,12 +29,12 @@ export default class TodoController {
 
 	addTodo(e) {
 		e.preventDefault()
-		var form = e.target
-		var todo = {
+		let form = e.target
+		let todo = {
 			description: form.description.value
 			// DONT FORGET TO BUILD YOUR TODO OBJECT
 		}
-
+		form.reset()
 		_todoService.addTodo(todo)
 	}
 
