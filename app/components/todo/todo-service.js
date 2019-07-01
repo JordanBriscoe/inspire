@@ -61,19 +61,20 @@ export default class TodoService {
 		// todo.completed = !todo.completed <-- THIS FLIPS A BOOL
 		// TODO flip
 		todo.completed = !todo.completed
-
 		todoApi.put(todoId, todo)
-			.then(res => {
-				this.getTodos()
-				//DO YOU WANT TO DO ANYTHING WITH THIS?
-			})
-			.catch(err => _setState('error', err.response.data))
+		.then(res => {
+			this.getTodos()
+			console.log("todo done", todo.completed)
+			
+		})
+		.catch(err => _setState('error', err.response.data))
 	}
+
 
 	removeTodo(todoId) {
 		todoApi.delete(todoId)
 			.then(res => {
-				console.log(res.data.data)
+				console.log(res.data.message)
 				this.getTodos()
 			})
 			.catch(err => console.error(err))
