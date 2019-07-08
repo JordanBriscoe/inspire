@@ -5,16 +5,18 @@ export default class Quote {
     }
     get Template() {
         return `
-        <div class="row">
-	        <div class="col-6">
+        
+	        <div id="quote-body" class="col-12">
                 <p>
                     "${this.text}"
                 </p>
+            </div>
+                <div id="quote-body" class="col-12">
                 <p>
                     "${this.author}"
                 </p>
 	        </div>
-        </div>
+       
         `
     }
 }
